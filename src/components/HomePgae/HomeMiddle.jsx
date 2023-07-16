@@ -1,0 +1,74 @@
+import Lottie from "lottie-react";
+import quiz from "../../assets/quiz.json";
+import PrimaryButton from "../PrimaryButton";
+// import Link from "next/link"
+import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+
+const HomeMiddle = () => {
+  const variants = {
+    hidden: { opacity: 0 },
+    show: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.3,
+      },
+    },
+  };
+
+  const images = {
+    hidden: {
+      opacity: 0,
+      y: 30,
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 1,
+      },
+    },
+  };
+  return (
+    <motion.div
+      variants={variants}
+      initial="hidden"
+      animate="show"
+      className="lg:flex  lg:mx-20   lg:ml-0 ml-6"
+    >
+      <div className="text-[#0e0d0d] mt-6 lg:ml-32">
+        <p className="text-[16px] font-semibold uppercase">
+          AI Question Generator
+        </p>
+        <h1 className="text-[36px] font-bold mt-3">
+          Make life easier with Ai-QuizzBot
+        </h1>
+        <p className="text-[18px] mt-3">
+          AiQuizbot is a powerful AI question generator designed to
+          revolutionize the way you create questions and exams by allowing you
+          to create multiple versions of the test at different levels.
+        </p>
+        <Link href="/dashboard">
+          <button
+            class="inline-flex items-center 
+                justify-center ml-3 mb-12  mt-6 h-[46px] w-[220px] px-6 font-medium tracking-wide
+                 text-white  rounded-2xl transition-all
+       duration-500 bg-gradient-to-r from-[#FC495F] from-62% via-[#FFc371] to-[#FF0000] to-38% 
+       bg-size-200 bg-pos-0 hover:bg-pos-100"
+            aria-label="Sign up"
+          >
+            Try Question for Free
+          </button>
+        </Link>
+      </div>
+      <motion.div
+        variants={images}
+        className="flex items-center  justify-center h-30 w-full lg:ml-56"
+      >
+        <Lottie animationData={quiz} loop={true}></Lottie>
+      </motion.div>
+    </motion.div>
+  );
+};
+
+export default HomeMiddle;
