@@ -1,23 +1,15 @@
 import React, { useState, useEffect, useContext } from "react";
-// import dynamic from "next/dynamic";
 import { AiOutlineFileWord, AiOutlineFileText } from "react-icons/ai";
 import { MdContentCopy } from "react-icons/md";
 import { AiOutlineSave } from "react-icons/ai";
 import { ContentState, EditorState } from "draft-js";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
-// import "../../../";
-// import "../Shared/Output.module.css";
+import "../../customEditorClassName.css";
+import "../Shared/Output.module.css";
 import axios from "axios";
-
+import { AuthContext } from "../../context/AuthProvider"; 
 import { toast } from "react-hot-toast";
-import { AuthContext } from "../../context/AuthProvider";
-
-// const DynamicEditor = dynamic(
-//   () => import("react-draft-wysiwyg").then((module) => module.Editor),
-//   {
-//     ssr: false,
-//   }
-// );
+import { Editor } from "react-draft-wysiwyg"; 
 
 const Output = ({ generatedResponse, chatGptLoading, saveQuestion }) => {
   const { user } = useContext(AuthContext);
@@ -48,30 +40,30 @@ const Output = ({ generatedResponse, chatGptLoading, saveQuestion }) => {
     setTitle(event.target.value);
   };
 
-  // const handleSave = async () => {
-  //   const question = {
-  //     how_many_questions: questionCount,
-  //     paste_text: content,
-  //     language: language,
-  //     difficulty: difficulty,
-  //     number_of_sets: versionCount,
-  //     title: title,
-  //     generatedText: generatedResponse,
-  //   };
+  const handleSave = async () => {
+    const question = {
+      how_many_questions: questionCount,
+      paste_text: content,
+      language: language,
+      difficulty: difficulty,
+      number_of_sets: versionCount,
+      title: title,
+      generatedText: generatedResponse,
+    };
 
-  //   try {
-  //     const email = user?.email;
-  //     const response = await axios.post(
-  //       "https://ai-quizzbot-farhatmahi.vercel.app/api/v1/users/get-user",
-  //       { email }
-  //     );
-  //     const data = await response.data;
-  //     const userID = data?.data?._id;
-  //     saveToDatabaseSavedQuestion(question, userID);
-  //   } catch (err) {
-  //     toast.error(err.message);
-  //   }
-  // };
+    try {
+      const email = user?.email;
+      const response = await axios.post(
+        "https://ai-quizzbot-farhatmahi.vercel.app/api/v1/users/get-user",
+        { email }
+      );
+      const data = await response.data;
+      const userID = data?.data?._id;
+      saveToDatabaseSavedQuestion(question, userID);
+    } catch (err) {
+      toast.error(err.message);
+    }
+  };
 
   const saveToDatabaseSavedQuestion = async (question, userID) => {
     if (title === "") {
@@ -133,7 +125,7 @@ const Output = ({ generatedResponse, chatGptLoading, saveQuestion }) => {
           />
         </div>
         <button
-          // onClick={handleSave}
+          onClick={handleSave}
           className="px-3 py-3 text-white rounded  bg-gradient-to-b from-[#FC495F] from-62% via-[#FFc371] to-[#FF0000] to-38% 
        bg-size-200 bg-pos-50"
         >
@@ -144,13 +136,13 @@ const Output = ({ generatedResponse, chatGptLoading, saveQuestion }) => {
       {/* Third Row */}
       <div className="editor-container">
         <div className="editor-wrapper">
-          {/* <DynamicEditor
+          <Editor
             editorState={editorState}
             wrapperClassName="customEditorWrapper"
             editorClassName="customEditorClassName"
             toolbarClassName="customToolbarClassName"
             onEditorStateChange={onEditorStateChange}
-          /> */}
+          />
         </div>
       </div>
     </div>

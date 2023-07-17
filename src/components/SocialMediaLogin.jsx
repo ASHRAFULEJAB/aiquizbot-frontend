@@ -1,22 +1,24 @@
-
 import { FcGoogle } from "react-icons/fc";
 import { useContext } from "react";
 
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../context/AuthProvider";
-import { useRouteError } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 
 const SocialMediaLogin = ({ children }) => {
   const { signInWithGoogle } = useContext(AuthContext);
-  const router = useRouteError();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
   const handleGoogleLogin = () => {
     signInWithGoogle().then((res) => {
       const userData = res.user;
 
       saveToDatabaseUser(userData);
 
-      router.push("/dashboard");
+      navigate(from, { replace: true });
     });
   };
 

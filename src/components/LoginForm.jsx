@@ -16,7 +16,6 @@ import { validateForm } from "../utils/validateForm";
 
 const LoginForm = () => {
   const { login } = useContext(AuthContext);
-  const router = useRouteError();
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
