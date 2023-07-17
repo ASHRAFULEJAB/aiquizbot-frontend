@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useContext } from "react";
 // import dynamic from "next/dynamic";
 import { AiOutlineFileWord, AiOutlineFileText } from "react-icons/ai";
@@ -9,7 +8,7 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 // import "../../../";
 // import "../Shared/Output.module.css";
 import axios from "axios";
-// import { AuthContext } from "@/context/AuthProvider";
+
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../context/AuthProvider";
 
@@ -21,7 +20,7 @@ import { AuthContext } from "../../context/AuthProvider";
 // );
 
 const Output = ({ generatedResponse, chatGptLoading, saveQuestion }) => {
-  // const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext);
 
   const [editorState, setEditorState] = useState(null);
   const [title, setTitle] = useState("");

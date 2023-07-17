@@ -14,43 +14,43 @@ const Options = () => {
       id: 1,
       option: "True/false",
       prompt: "This is True/ False Prompt",
-      link: "/generate-questions/true-false",
+      link: "/dashboard/generate-questions/true-false",
     },
     {
       id: 2,
       option: "Multiple Questions",
       prompt: "This is Multiple Questions Prompt",
-      link: "/generate-questions/multiple-questions",
+      link: "/dashboard/generate-questions/multiple-questions",
     },
     {
       id: 3,
       option: "Short Answers",
       prompt: "This is Short Answers Prompt",
-      link: "/generate-questions/short-answers",
+      link: "/dashboard/generate-questions/short-answers",
     },
     {
       id: 4,
       option: "Blanks",
       prompt: "This is Blanks Prompt",
-      link: "/generate-questions/blanks",
+      link: "/dashboard/generate-questions/blanks",
     },
     {
       id: 5,
       option: "Matching",
       prompt: "This is Matching Prompt",
-      link: "/generate-questions/matching",
+      link: "/dashboard/generate-questions/matching",
     },
     {
       id: 6,
       option: "Calculations",
       prompt: "This is Calculations Prompt",
-      link: "/generate-questions/calculations",
+      link: "/dashboard/generate-questions/calculations",
     },
     {
       id: 7,
       option: "Teacher Tool",
       prompt: "This is Teacher Tool Prompt",
-      link: "/generate-questions/teacher-tool",
+      link: "/dashboard/generate-questions/teacher-tool",
     },
   ];
 
@@ -59,7 +59,7 @@ const Options = () => {
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-5">
         {buttonOptions?.map((buttonOption) => (
           <Link
-            href={buttonOption.link}
+            to={buttonOption.link}
             key={buttonOption.id}
             className={`${
               pathname === buttonOption.link

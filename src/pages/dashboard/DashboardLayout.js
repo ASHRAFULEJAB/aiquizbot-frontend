@@ -55,24 +55,26 @@ const DashboardLayout = () => {
                 <div className="col-span-4">
                   <div className="mr-8">
                     <Header open={open} setOpen={setOpen}></Header>
-                    {pathname === "/generate-questions" ||
-                    pathname === "/generate-questions/true-false" ||
-                    pathname === "/generate-questions/multiple-questions" ||
-                    pathname === "/generate-questions/short-answers" ||
-                    pathname === "/generate-questions/blanks" ||
-                    pathname === "/generate-questions/matching" ||
-                    pathname === "/generate-questions/calculations" ||
-                    pathname === "/generate-questions/teacher-tool" ||
+                    {pathname === "/dashboard/generate-questions" ||
+                    pathname === "/dashboard/generate-questions/true-false" ||
                     pathname ===
-                      "/generate-questions/teacher-tool/lesson-planner" ||
+                      "/dashboard/generate-questions/multiple-questions" ||
                     pathname ===
-                      "/generate-questions/teacher-tool/project-ideas" ||
+                      "/dashboard/generate-questions/short-answers" ||
+                    pathname === "/dashboard/generate-questions/blanks" ||
+                    pathname === "/dashboard/generate-questions/matching" ||
+                    pathname === "/dashboard/generate-questions/calculations" ||
+                    pathname === "/dashboard/generate-questions/teacher-tool" ||
                     pathname ===
-                      "/generate-questions/teacher-tool/study-points" ||
+                      "/dashboard/generate-questions/teacher-tool/lesson-planner" ||
                     pathname ===
-                      "/generate-questions/teacher-tool/group-creator" ||
+                      "/dashboard/generate-questions/teacher-tool/project-ideas" ||
                     pathname ===
-                      "/generate-questions/teacher-tool/seating-chart" ? (
+                      "/dashboard/generate-questions/teacher-tool/study-points" ||
+                    pathname ===
+                      "/dashboard/generate-questions/teacher-tool/group-creator" ||
+                    pathname ===
+                      "/dashboard/generate-questions/teacher-tool/seating-chart" ? (
                       <>
                         {" "}
                         <Options></Options>{" "}

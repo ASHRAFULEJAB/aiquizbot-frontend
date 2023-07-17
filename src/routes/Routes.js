@@ -12,6 +12,8 @@ import Member from "../pages/membership/Member";
 import Transite from "../pages/transaction/Transite";
 import Account from "../pages/account-settings/Account";
 import DashboardMain from "../pages/dashboard/DashboardMain";
+import Multiple from "../pages/generate-questions/multiple-questions/Multiple";
+import Blank from "../pages/generate-questions/blanks/Blank";
 // import Home from "../pages/Home/Home";
 // import Feature from "../pages/Features/Feature";
 // import NftRights from "../pages/NFT/NftRights";
@@ -88,6 +90,22 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/account-settings",
         element: <Account />,
+      },
+      {
+        path: "/dashboard/generate-questions/multiple-questions",
+        element: <Multiple />,
+      },
+      {
+        path: "/dashboard/generate-questions/blanks",
+        element: <Blank />,
+      },
+      {
+        path: "/dashboard/generate-questions/multiple-questions",
+        element: <Multiple />,
+      },
+      {
+        path: "/dashboard/generate-questions/multiple-questions",
+        element: <Multiple />,
       },
       // {
       //   path: "/dashboard/dashboardd",

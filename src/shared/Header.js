@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthProvider";
 // import pervezHossainImage from "../../../public/pervez hossain.jpg";
 // import Image from "next/image";
 // import { AuthContext } from "@/context/AuthProvider";
-import avater from '../assets/avater.avif'
+import avater from "../assets/avater.avif";
 
 const Header = ({ open, setOpen }) => {
   const user = useContext(AuthContext);
@@ -38,7 +38,7 @@ const Header = ({ open, setOpen }) => {
             <img
               src="https://img.freepik.com/free-icon/user_318-219687.jpg"
               alt="avataer"
-              className="rounded-full h-10 w-10"
+              className="rounded-full h-16 w-16"
             ></img>
           ) : (
             <img
