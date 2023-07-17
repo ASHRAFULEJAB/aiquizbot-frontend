@@ -6,16 +6,20 @@ import logo from "../../assets/logo.png";
 import { toast } from "react-hot-toast";
 import { motion } from "framer-motion";
 import { AuthContext } from "../../context/AuthProvider";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const TOP_OFFSET = 66;
 const HomeHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const { user, logOut } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
   const handleLogout = () => {
     logOut()
       .then(() => {
         toast.success("Log Out Successfully");
+        navigate("/login");
       })
       .catch((e) => toast.error(e.message));
   };

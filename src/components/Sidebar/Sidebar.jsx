@@ -1,7 +1,3 @@
-// "use client";
-// import { usePathname, useRouter } from "next/navigation";
-// import img from "next/img";
-// import Link from "next/link";
 import React, { useContext } from "react";
 import logo from "../../assets/logo.png";
 import { FaRegCommentDots } from "react-icons/fa";
@@ -14,16 +10,24 @@ import { IoSettingsOutline } from "react-icons/io5";
 // import { AuthContext } from "@/context/AuthProvider";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../context/AuthProvider";
-import { Link, useLocation, useRouteError } from "react-router-dom";
+import {
+  Link,
+  useLocation,
+  useNavigate,
+  useRouteError,
+} from "react-router-dom";
 
 const Sidebar = () => {
   const { logOut } = useContext(AuthContext);
   const router = useRouteError();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const handleLogout = () => {
     logOut()
       .then(() => {
-        router.push("/login");
         toast.success("Logout Successfully!!");
+         navigate('/login');
       })
       .catch((e) => toast.error(e.message));
   };
