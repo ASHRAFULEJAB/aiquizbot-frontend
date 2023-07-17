@@ -50,10 +50,10 @@ const HomeHeader = () => {
             </Link>
             <ul className="flex items-center hidden space-x-8 lg:flex lg:ml-96 justify-between">
               <motion.li
-                whileHover={{ scale: 1.2 }}
-                // whileTap={{ scale: 1.1 }}
-                // drag="x"
-                // dragConstraints={{ left: -100, right: 100 }}
+
+              // whileTap={{ scale: 1.1 }}
+              // drag="x"
+              // dragConstraints={{ left: -100, right: 100 }}
               >
                 <Link
                   to="/"
@@ -64,7 +64,7 @@ const HomeHeader = () => {
                   Home
                 </Link>
               </motion.li>
-              <motion.li whileHover={{ scale: 1.2 }}>
+              <motion.li>
                 <Link
                   to="/dashboard/dashboard"
                   aria-label="Our product"
@@ -83,7 +83,7 @@ const HomeHeader = () => {
                   Contact
                 </Link>
               </li> */}
-              <motion.li whileHover={{ scale: 1.2 }}>
+              <motion.li>
                 <Link
                   to="/about"
                   aria-label="Product pricing"
@@ -129,7 +129,7 @@ const HomeHeader = () => {
               </>
             ) : (
               <>
-                 {/* <li>
+                {/* <li>
               <Link
                 to="/login"
                 aria-label="Sign in"
@@ -215,7 +215,7 @@ const HomeHeader = () => {
                   </div>
                   <nav>
                     <ul className="space-y-4">
-                      <motion.li whileHover={{ scale: 1.2 }}>
+                      <motion.li>
                         <Link
                           to="/"
                           aria-label="Our product"
@@ -225,7 +225,7 @@ const HomeHeader = () => {
                           Home
                         </Link>
                       </motion.li>
-                      <motion.li whileHover={{ scale: 1.2 }}>
+                      <motion.li>
                         <Link
                           to="/dashboard"
                           aria-label="Our product"
@@ -244,7 +244,7 @@ const HomeHeader = () => {
                           Marketplace
                         </Link>
                       </li> */}
-                      <motion.li whileHover={{ scale: 1.2 }}>
+                      <motion.li>
                         <Link
                           to="/about"
                           aria-label="About us"

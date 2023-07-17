@@ -48,7 +48,7 @@ const HomeMiddle = () => {
           revolutionize the way you create questions and exams by allowing you
           to create multiple versions of the test at different levels.
         </p>
-        <Link href="/dashboard">
+        <Link to="/dashboard/dashboard">
           <button
             class="inline-flex items-center 
                 justify-center ml-3 mb-12  mt-6 h-[46px] w-[220px] px-6 font-medium tracking-wide

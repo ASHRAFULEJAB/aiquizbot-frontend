@@ -1,10 +1,12 @@
-"use client";
-import Home from "@/components/Home/Home";
-import Link from "next/link";
-import { usePathname } from "next/navigation";
 import React from "react";
+import { Link, useLocation } from "react-router-dom";
+import Home from "../../../components/Home/Home";
 
-const Page = () => {
+const Teaches = () => {
+  const usePathname = () => {
+    const location = useLocation();
+    return location.pathname;
+  };
   const pathname = usePathname();
   const buttonOptions = [
     {
@@ -49,4 +51,4 @@ const Page = () => {
   );
 };
 
-export default Page;
+export default Teaches;

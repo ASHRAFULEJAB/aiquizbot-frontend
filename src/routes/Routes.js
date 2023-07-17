@@ -14,6 +14,10 @@ import Account from "../pages/account-settings/Account";
 import DashboardMain from "../pages/dashboard/DashboardMain";
 import Multiple from "../pages/generate-questions/multiple-questions/Multiple";
 import Blank from "../pages/generate-questions/blanks/Blank";
+import Short from "../pages/generate-questions/short-answers/Short";
+import Match from "../pages/generate-questions/matching/Match";
+import Calculate from "../pages/generate-questions/calculations/Calculate";
+import Teaches from "../pages/generate-questions/teacher-tool/Teaches";
 // import Home from "../pages/Home/Home";
 // import Feature from "../pages/Features/Feature";
 // import NftRights from "../pages/NFT/NftRights";
@@ -100,69 +104,21 @@ const router = createBrowserRouter([
         element: <Blank />,
       },
       {
-        path: "/dashboard/generate-questions/multiple-questions",
-        element: <Multiple />,
+        path: "/dashboard/generate-questions/short-answers",
+        element: <Short />,
       },
       {
-        path: "/dashboard/generate-questions/multiple-questions",
-        element: <Multiple />,
+        path: "/dashboard/generate-questions/matching",
+        element: <Match />,
       },
-      // {
-      //   path: "/dashboard/dashboardd",
-      //   element: (
-      //     <PrivateRoute>
-      //       <MyOrders></MyOrders>
-      //     </PrivateRoute>
-      //   ),
-      // },
-      // {
-      //   path: "/dashboard/allbuyers",
-      //   element: (
-      //     <AdminRoute>
-      //       <AllBuyers></AllBuyers>
-      //     </AdminRoute>
-      //   ),
-      // },
-      // {
-      //   path: "/dashboard/allsellers",
-      //   element: (
-      //     <AdminRoute>
-      //       <AllSellers></AllSellers>
-      //     </AdminRoute>
-      //   ),
-      // },
-      // {
-      //   path: "/dashboard/reportedItems",
-      //   element: (
-      //     <AdminRoute>
-      //       <ReportedItems></ReportedItems>
-      //     </AdminRoute>
-      //   ),
-      // },
-      // {
-      //   path: "/dashboard/adda-products",
-      //   element: (
-      //     <SellerRoute>
-      //       <AddAProduct></AddAProduct>
-      //     </SellerRoute>
-      //   ),
-      // },
-      // {
-      //   path: "/dashboard/my-products",
-      //   element: (
-      //     <SellerRoute>
-      //       <MyProducts></MyProducts>
-      //     </SellerRoute>
-      //   ),
-      // },
-      // {
-      //   path: "/dashboard/payment/:id",
-      //   element: <Payment></Payment>,
-      //   loader: ({ params }) =>
-      //     fetch(
-      //       `https://mall-of-recondition-laptops-server.vercel.app/orders/${params.id}`
-      //     ),
-      // },
+      {
+        path: "/dashboard/generate-questions/calculations",
+        element: <Calculate />,
+      },
+      {
+        path: "/dashboard/generate-questions/teacher-tool",
+        element: <Teaches />,
+      },
     ],
   },
 ]);

@@ -55,8 +55,6 @@ const ChoosePlan = () => {
            md:space-y-0 md:flex-row"
           >
             <motion.div
-              // whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
               className="w-full px-6 py-4 transition-colors duration-300 transform rounded-2xl md:mx-5 
             md:w-96 bg-gray-50 "
             >
@@ -165,7 +163,7 @@ const ChoosePlan = () => {
                   </span>
                 </div>
               </div>
-              <Link href="/transaction">
+              <Link to="/dashboard/transaction">
                 {" "}
                 <motion.button
                   whileHover={{ scale: 1.1 }}
@@ -181,8 +179,6 @@ const ChoosePlan = () => {
             </motion.div>
 
             <motion.div
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
               className="w-full overflow-hidden transition-colors duration-300 transform rounded-2xl
              md:mx-5 md:w-96 bg-gray-50 "
             >
@@ -301,7 +297,7 @@ const ChoosePlan = () => {
                     </span>
                   </div>
                 </div>
-                <Link href="/transaction">
+                <Link to="/dashboard/transaction">
                   {" "}
                   <motion.button
                     whileHover={{ scale: 1.1 }}

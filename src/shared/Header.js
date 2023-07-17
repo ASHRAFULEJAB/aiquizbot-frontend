@@ -14,10 +14,11 @@ const Header = ({ open, setOpen }) => {
         <button
           className={`${
             open ? "transition-all duration-700" : ""
-          } bg-gradient-to-r from-[#FC495F] to-[#FFc371] w-9 h-9 rounded-full lg:flex md:flex items-center justify-center cursor-pointer transition-all duration-700 hidden ml-8`}
+          } bg-gradient-to-r from-[#FC495F] to-[#FFc371] w-10 h-10 
+          rounded-full lg:flex md:flex items-center justify-center cursor-pointer transition-all duration-700 hidden ml-8`}
           onClick={() => setOpen(!open)}
         >
-          <FaBars className="text-white text-lg hover:text-black" />
+          <FaBars className="text-white text-lg" />
         </button>
       </div>
       {/* Mobile Code */}
