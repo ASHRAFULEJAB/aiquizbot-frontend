@@ -18,6 +18,7 @@ import Short from "../pages/generate-questions/short-answers/Short";
 import Match from "../pages/generate-questions/matching/Match";
 import Calculate from "../pages/generate-questions/calculations/Calculate";
 import Teaches from "../pages/generate-questions/teacher-tool/Teaches";
+import TeacherTools from "../pages/generate-questions/teacher-tool/TeacherTools";
 // import Home from "../pages/Home/Home";
 // import Feature from "../pages/Features/Feature";
 // import NftRights from "../pages/NFT/NftRights";
@@ -30,7 +31,6 @@ import Teaches from "../pages/generate-questions/teacher-tool/Teaches";
 const router = createBrowserRouter([
   {
     path: "/",
-    // errorElement: <ErrorPage></ErrorPage>,
     element: <Main></Main>,
     children: [
       {
@@ -41,22 +41,7 @@ const router = createBrowserRouter([
         path: "/about",
         element: <About />,
       },
-      // {
-      //   path: "/pre-nft",
-      //   element: (
-      //     <PrivateRoute>
-      //       <NftRights />
-      //     </PrivateRoute>
-      //   ),
-      // },
-      // {
-      //   path: "/marketplace",
-      //   element: <MarketPlace />,
-      // },
-      // {
-      //   path: "/auction",
-      //   element: <Auction />,
-      // },
+      // Other routes
     ],
   },
   {
@@ -118,8 +103,15 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/generate-questions/teacher-tool",
         element: <Teaches />,
+        children: [
+          {
+            path: "/dashboard/generate-questions/teacher-tool/lesson-planner",
+            element: <TeacherTools />,
+          },
+        ],
       },
     ],
   },
 ]);
+
 export default router;

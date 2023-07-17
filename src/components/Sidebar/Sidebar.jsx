@@ -130,7 +130,7 @@ const Sidebar = () => {
             })}
           </div>
           <div>
-            <h2 className=" font-bold mb-5 mt-16  ">Account</h2>
+            {/* <h2 className=" font-bold mb-5 mt-16  ">Account</h2>
             {AccountSettings.map((item) => {
               return (
                 <Link
@@ -174,8 +174,8 @@ const Sidebar = () => {
                   )}
                 </Link>
               );
-            })}
-            <div className="flex items-center gap-3 cursor-pointer">
+            })} */}
+            <div className="flex items-center gap-3 cursor-pointer mt-96">
               <LuLogOut className="text-[20px] "></LuLogOut>{" "}
               <span onClick={handleLogout} className="font-normal">
                 Logout

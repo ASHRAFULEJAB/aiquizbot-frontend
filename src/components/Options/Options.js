@@ -51,11 +51,17 @@ const Options = () => {
       option: "Teacher Tool",
       prompt: "This is Teacher Tool Prompt",
       link: "/dashboard/generate-questions/teacher-tool",
+      // // Nested route for LessonPlanner component
+      // nestedRoutes: [
+      //   { id: 1, option: "Lesson Planner", link: "/lesson-planner" },
+      //   // Add other nested routes here if needed
+      // ],
     },
   ];
 
   return (
     <div className="mt-5 bg-[#f9f9f9] rounded-2xl border border-[#eee] mx-8">
+      {/* Main Links Row */}
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-5">
         {buttonOptions?.map((buttonOption) => (
           <Link
@@ -72,6 +78,29 @@ const Options = () => {
           </Link>
         ))}
       </div>
+      {/* Add Space between Rows */}
+      {/* <div style={{ height: "20px" }}></div> */}
+      {/* Nested Links Row */}
+      {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-5 mt-3">
+        {buttonOptions
+          ?.filter((buttonOption) => buttonOption.nestedRoutes)
+          .map((buttonOption) =>
+            buttonOption.nestedRoutes.map((nestedRoute) => (
+              <Link
+                key={nestedRoute.id}
+                to={buttonOption.link + nestedRoute.link}
+                className={`${
+                  pathname === buttonOption.link + nestedRoute.link
+                    ? "border-b-2 border-b-gradient-color-62 hover:text-gradient-color-62 bg-transparent bg-clip-text font-bold text-[#FC495F]"
+                    : "hover:border-b-2 hover:border-b-gradient-color-62 hover:text-gradient-color-62 text-[#626262] font-semibold"
+                } mx-2 py-5 cursor-pointer text-center flex items-center justify-center hover:bg-transparent hover:transition duration-300 ease-in-out relative text-sm `}
+                style={{ height: "70px" }}
+              >
+                {nestedRoute.option}
+              </Link>
+            ))
+          )}
+      </div> */}
     </div>
   );
 };

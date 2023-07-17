@@ -90,7 +90,7 @@ const Output = ({ generatedResponse, chatGptLoading, saveQuestion }) => {
       {/* First Row */}
       <div className="flex justify-between">
         <span className="text-lg font-bold">Generated Questions</span>
-        <div className="space-x-2">
+        {/* <div className="space-x-2">
           <button
             className="px-3 py-3 text-white rounded  bg-gradient-to-b from-[#FC495F] from-62% via-[#FFc371] to-[#FF0000] to-38% 
        bg-size-200 bg-pos-0"
@@ -109,7 +109,7 @@ const Output = ({ generatedResponse, chatGptLoading, saveQuestion }) => {
           >
             <MdContentCopy className="text-2xl" />
           </button>
-        </div>
+        </div> */}
       </div>
 
       {/* Second Row */}

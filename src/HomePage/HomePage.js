@@ -19,7 +19,7 @@ const HomePage = () => {
       </div>
       <HomeMiddle />
       <QuizbotWork />
-      <ChoosePlan />
+      {/* <ChoosePlan /> */}
     </div>
   );
 };

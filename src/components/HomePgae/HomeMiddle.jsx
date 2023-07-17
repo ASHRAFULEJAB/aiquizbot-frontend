@@ -57,7 +57,7 @@ const HomeMiddle = () => {
        bg-size-200 bg-pos-0 hover:bg-pos-100"
             aria-label="Sign up"
           >
-            Try Question for Free
+            Get Started
           </button>
         </Link>
       </div>

@@ -3,7 +3,7 @@ import axios from "axios";
 import { useContext, useState } from "react";
 import { toast } from "react-hot-toast";
 import { AuthContext } from "../../context/AuthProvider";
-import { useRouteError } from "react-router-dom";
+import { useLocation, useNavigate, useRouteError } from "react-router-dom";
 import { validateForm } from "../../utils/validateForm";
 import SocialMediaLogin from "../../components/SocialMediaLogin";
 import Divider from "../../components/Divider";
@@ -16,6 +16,9 @@ const SignUp = () => {
   const { createUser, updateUser } = useContext(AuthContext);
   const router = useRouteError();
   const [loading, setLoading] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
   const [data, setData] = useState({
     fullName: "",
     email: "",
@@ -58,7 +61,7 @@ const SignUp = () => {
           updateUser(userInfo)
             .then((result) => {
               setLoading(false);
-              router.push("/dashboard");
+              navigate("/dashboard/dashboard");
               toast.success(
                 "Congratulation!! Your Registration is successfull"
               );

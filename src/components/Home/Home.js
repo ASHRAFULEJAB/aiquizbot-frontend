@@ -178,11 +178,11 @@ const Home = () => {
               name="difficulty"
               options={difficultyOptions}
             />
-            <DropdownOptions
+            {/* <DropdownOptions
               label="Number Of Versions?"
               name="versionCount"
               options={numberOfVersions}
-            />
+            /> */}
             {loading ? (
               <PrimaryButton loading={loading} className="mb-3">
                 <LoaderSpinner /> Generating Question

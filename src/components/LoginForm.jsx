@@ -51,7 +51,7 @@ const LoginForm = () => {
         .then((res) => {
           const user = res.user;
           setLoading(false);
-          navigate(from, { replace: true });
+          navigate('/dashboard/dashboard');
           toast.success("Login has been Successfull!!");
         })
         .catch((err) => {
