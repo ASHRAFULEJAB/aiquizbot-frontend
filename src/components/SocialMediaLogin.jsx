@@ -38,7 +38,7 @@ const SocialMediaLogin = ({ children }) => {
       );
       const data = response.data;
 
-      toast.success(data.message);
+      toast.success(`Welcome ${data?.username}`);
     } catch (error) {
       toast.error(error.message);
     }

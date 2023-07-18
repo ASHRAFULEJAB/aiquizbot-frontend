@@ -93,7 +93,7 @@ const DashboardLayout = () => {
             </>
           )}
           <Footer />
-          <Toaster position="bottom-center" reverseOrder={false} />
+         
         </AuthProvider>
       </div>
     </div>
