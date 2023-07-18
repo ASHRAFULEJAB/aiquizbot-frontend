@@ -18,7 +18,7 @@ const SocialMediaLogin = ({ children }) => {
 
       saveToDatabaseUser(userData);
 
-      navigate(from, { replace: true });
+      navigate('/dashboard/dashboard');
     });
   };
 

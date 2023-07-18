@@ -55,7 +55,7 @@ const LoginForm = () => {
           toast.success("Login has been Successfull!!");
         })
         .catch((err) => {
-          toast.error(err.message);
+          toast.error('user not found!Please Sign Up First.');
           setLoginError("Incorrect email or password.");
           setLoading(false);
         });
