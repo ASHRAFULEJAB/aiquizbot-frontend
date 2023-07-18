@@ -86,7 +86,7 @@ const Home = () => {
 
     const data = { prompt };
     axios
-      .post("http://localhost:4000/api/v1/generate", data)
+      .post("https://ai-quizzbot-server.onrender.com/api/v1/generate", data)
       .then((res) => {
         setGeneratedResponse(res.data.data);
         const saveQuestionData = {
