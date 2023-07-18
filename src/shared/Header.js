@@ -36,13 +36,7 @@ const Header = ({ open, setOpen }) => {
       <div className="flex justify-end items-center gap-8 pt-4 py-2 z-0 relative">
         {user && <h2>{user?.user?.displayName}</h2>}
         <div className="rounded-full bg-gradient-to-r from-[#FC495F] to-[#FFc371] p-1">
-          {user?.user?.photoURL === null ? (
-            <img
-              src="https://img.freepik.com/free-icon/user_318-219687.jpg"
-              alt="avataer"
-              className="rounded-full h-16 w-16"
-            ></img>
-          ) : (
+          {user?.user?.photoURL ? (
             <img
               src={user?.user?.photoURL}
               alt={user?.user?.displayName}
@@ -50,6 +44,14 @@ const Header = ({ open, setOpen }) => {
               height={50}
               className="rounded-full"
             />
+          ) : (
+            <img
+              src="https://img.freepik.com/free-icon/user_318-219687.jpg"
+              alt="avataer"
+              width={50}
+              height={50}
+              className="rounded-full"
+            ></img>
           )}
         </div>
       </div>
