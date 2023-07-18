@@ -1,16 +1,17 @@
 import { IoDocumentsOutline } from "react-icons/io5";
 
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { ImCross } from "react-icons/im";
 import { toast } from "react-hot-toast";
 import axios from "axios";
 import { AuthContext } from "../context/AuthProvider";
 import { Link } from "react-router-dom";
 
-const SavedQuestionTable = ({ loading, savedQuestion }) => {
+const SavedQuestionTable = ({ savedQuestion, setSavedQuestion }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const { user } = useContext(AuthContext);
   const email = user?.email;
+  console.log(savedQuestion);
   const [saveModalQuestion, setSaveModalQuestion] = useState({});
 
   const openModal = (question) => {
@@ -23,26 +24,30 @@ const SavedQuestionTable = ({ loading, savedQuestion }) => {
   };
 
   const handleDelete = async (id) => {
-    const response = await axios.post(
-      "https://ai-quizzbot-server.onrender.com/api/v1/users/get-user",
-      { email }
-    );
-
-    const data = await response.data;
-    const userId = {
-      userId: data?.data?._id,
-    };
-
-    try {
-      const response = await axios.delete(
-        `https://ai-quizzbot-server.onrender.com/api/v1/all-saved-questions/${id}`,
-        { data: userId }
+    const agree = window.confirm("Are You Sure ? You Want to Delete");
+    if (agree) {
+      const response = await axios.post(
+        "https://ai-quizzbot-server.onrender.com/api/v1/users/get-user",
+        { email }
       );
-      const data = await response.data;
 
-      toast.success(data.data);
-    } catch (error) {
-      toast.error(error.message);
+      const data = await response.data;
+      const userId = {
+        userId: data?.data?._id,
+      };
+
+      try {
+        const response = await axios.delete(
+          `https://ai-quizzbot-server.onrender.com/api/v1/all-saved-questions/${id}`,
+          { data: userId }
+        );
+        const data = await response.data;
+        const filter = savedQuestion?.filter((data) => data?._id !== id);
+        setSavedQuestion(filter);
+        toast.success(data.data);
+      } catch (error) {
+        toast.error(error.message);
+      }
     }
   };
 
