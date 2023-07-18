@@ -18,7 +18,7 @@ const SocialMediaLogin = ({ children }) => {
 
       saveToDatabaseUser(userData);
 
-      navigate(from, { replace: true });
+      navigate("/dashboard/dashboard");
     });
   };
 
@@ -33,12 +33,12 @@ const SocialMediaLogin = ({ children }) => {
 
     try {
       const response = await axios.post(
-        "https://ai-quizzbot-server.onrender.com/api/v1/users/create-user",
+        "http://localhost:4000/api/v1/users/create-user",
         { user }
       );
       const data = response.data;
 
-      toast.success(data.message);
+      toast.success(`Welcome`);
     } catch (error) {
       toast.error(error.message);
     }

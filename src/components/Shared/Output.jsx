@@ -7,9 +7,9 @@ import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import "../../customEditorClassName.css";
 import "../Shared/Output.module.css";
 import axios from "axios";
-import { AuthContext } from "../../context/AuthProvider"; 
+import { AuthContext } from "../../context/AuthProvider";
 import { toast } from "react-hot-toast";
-import { Editor } from "react-draft-wysiwyg"; 
+import { Editor } from "react-draft-wysiwyg";
 
 const Output = ({ generatedResponse, chatGptLoading, saveQuestion }) => {
   const { user } = useContext(AuthContext);
@@ -54,7 +54,7 @@ const Output = ({ generatedResponse, chatGptLoading, saveQuestion }) => {
     try {
       const email = user?.email;
       const response = await axios.post(
-        "https://ai-quizzbot-server.onrender.com/api/v1/users/get-user",
+        "http://localhost:4000/api/v1/users/get-user",
         { email }
       );
       const data = await response.data;
@@ -72,7 +72,7 @@ const Output = ({ generatedResponse, chatGptLoading, saveQuestion }) => {
     }
     try {
       const response = await axios.post(
-        `https://ai-quizzbot-server.onrender.com/api/v1/all-saved-questions/${userID}`,
+        `http://localhost:4000/api/v1/all-saved-questions/${userID}`,
         {
           question,
         }
