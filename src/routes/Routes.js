@@ -22,6 +22,7 @@ import TeacherTools from "../pages/generate-questions/teacher-tool/TeacherTools"
 import LessonPlaner from "../pages/generate-questions/teacher-tool/LessonPlaner";
 import ProjectIdeas from "../pages/generate-questions/teacher-tool/ProjectIdeas";
 import StudyPoints from "../pages/generate-questions/teacher-tool/StudyPoints";
+import PrivateRoute from "./PrivateRoute";
 // import Home from "../pages/Home/Home";
 // import Feature from "../pages/Features/Feature";
 // import NftRights from "../pages/NFT/NftRights";
@@ -65,24 +66,32 @@ const router = createBrowserRouter([
       },
       {
         path: "/dashboard/generate-questions/true-false",
-        element: <Generate />,
+        element: (
+          <PrivateRoute>
+            <Generate />
+          </PrivateRoute>
+        ),
       },
       {
         path: "/dashboard/saved-questions",
-        element: <Saved />,
+        element: (
+          <PrivateRoute>
+            <Saved />
+          </PrivateRoute>
+        ),
       },
-      {
-        path: "/dashboard/membership",
-        element: <Member />,
-      },
-      {
-        path: "/dashboard/transaction",
-        element: <Transite />,
-      },
-      {
-        path: "/dashboard/account-settings",
-        element: <Account />,
-      },
+      // {
+      //   path: "/dashboard/membership",
+      //   element: <Member />,
+      // },
+      // {
+      //   path: "/dashboard/transaction",
+      //   element: <Transite />,
+      // },
+      // {
+      //   path: "/dashboard/account-settings",
+      //   element: <Account />,
+      // },
       {
         path: "/dashboard/generate-questions/multiple-questions",
         element: <Multiple />,

@@ -186,7 +186,7 @@ const Sidebar = () => {
       </div>
 
       {/* Mobile Code */}
-      <div className="lg:hidden md:hidden block">
+      <div className="lg:hidden md:hidden block ">
         <Link to="/">
           <img
             src={logo}

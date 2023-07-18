@@ -27,10 +27,10 @@ const Header = ({ open, setOpen }) => {
         <button
           className={`${
             open ? "transition-all duration-700" : ""
-          } bg-gradient-to-r from-[#FC495F] to-[#FFc371] w-9 h-9 rounded-full flex items-center justify-center cursor-pointer transition-all duration-700 ml-8`}
+          } bg-gradient-to-r from-[#FC495F] to-[#FFc371] w-10 h-10 rounded-full flex items-center justify-center cursor-pointer transition-all duration-700 ml-8`}
           onClick={() => setOpen(!open)}
         >
-          <FaBars className="text-white text-lg hover:text-black" />
+          <FaBars className="text-white text-lg " />
         </button>
       </div>
       <div className="flex justify-end items-center gap-8 pt-4 py-2 z-0 relative">

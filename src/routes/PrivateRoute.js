@@ -1,16 +1,15 @@
 import React, { useContext } from "react";
 import { Navigate, useLocation } from "react-router-dom";
-import { UserAuthContext } from "../AuthContext/AuthProvider";
+import { AuthContext } from "../context/AuthProvider";
 
 const PrivateRoute = ({ children }) => {
-  const { user, loader } = useContext(UserAuthContext);
+  const { user, loader } = useContext(AuthContext);
   const location = useLocation();
   if (loader) {
     return (
-      <div
-        className="w-16 h-16 my-5 mx-auto border-4 border-dashed rounded-full animate-spin dark:border-purple-600"
-        bis_skin_checked="1"
-      ></div>
+      <div className="flex items-center justify-center h-screen">
+        <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-[#FC495F]"></div>
+      </div>
     );
   }
   if (!user) {
