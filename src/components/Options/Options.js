@@ -59,10 +59,31 @@ const Options = () => {
     },
   ];
 
+  const teacherToolButtonOptions = [
+    {
+      id: 1,
+      option: "Lesson Planer",
+      prompt: "This is Lesson Planer Prompt",
+      link: "dashboard/generate-questions/teacher-tool/lesson-planer",
+    },
+    {
+      id: 2,
+      option: "Project Ideas",
+      prompt: "This is Project Ideas Prompt",
+      link: "dashboard/generate-questions/teacher-tool/project-ideas",
+    },
+    {
+      id: 3,
+      option: "Study Points",
+      prompt: "This is Study Points Prompt",
+      link: "dashboard/generate-questions/teacher-tool/study-points",
+    },
+  ];
+
   return (
-    <div className="mt-5 bg-[#f9f9f9] rounded-2xl border border-[#eee] mx-8">
+    <div className="">
       {/* Main Links Row */}
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-5">
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-5 mt-5 bg-[#f9f9f9] rounded-2xl border border-[#eee] mx-8">
         {buttonOptions?.map((buttonOption) => (
           <Link
             to={buttonOption.link}
@@ -71,36 +92,35 @@ const Options = () => {
               pathname === buttonOption.link
                 ? "border-b-2 border-b-gradient-color-62 hover:text-gradient-color-62 bg-transparent bg-clip-text font-bold text-[#FC495F]"
                 : "hover:border-b-2 hover:border-b-gradient-color-62 hover:text-gradient-color-62 text-[#626262] font-semibold"
-            } mx-2 py-5 cursor-pointer text-center flex items-center justify-center hover:bg-transparent hover:transition duration-300 ease-in-out relative text-sm `}
+            } mx-2  py-5 cursor-pointer text-center flex items-center justify-center hover:bg-transparent hover:transition duration-300 ease-in-out relative text-sm `}
             style={{ height: "70px" }}
           >
             {buttonOption.option}
           </Link>
         ))}
       </div>
-      {/* Add Space between Rows */}
-      {/* <div style={{ height: "20px" }}></div> */}
-      {/* Nested Links Row */}
-      {/* <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-5 mt-3">
-        {buttonOptions
-          ?.filter((buttonOption) => buttonOption.nestedRoutes)
-          .map((buttonOption) =>
-            buttonOption.nestedRoutes.map((nestedRoute) => (
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-5 mt-5 bg-[#f9f9f9] rounded-2xl border border-[#eee] mx-8">
+        {pathname === "/dashboard/generate-questions/teacher-tool" ? (
+          <>
+            {teacherToolButtonOptions.map((p) => (
               <Link
-                key={nestedRoute.id}
-                to={buttonOption.link + nestedRoute.link}
+                to={p.link}
+                key={p.id}
                 className={`${
-                  pathname === buttonOption.link + nestedRoute.link
+                  pathname === p.link
                     ? "border-b-2 border-b-gradient-color-62 hover:text-gradient-color-62 bg-transparent bg-clip-text font-bold text-[#FC495F]"
                     : "hover:border-b-2 hover:border-b-gradient-color-62 hover:text-gradient-color-62 text-[#626262] font-semibold"
                 } mx-2 py-5 cursor-pointer text-center flex items-center justify-center hover:bg-transparent hover:transition duration-300 ease-in-out relative text-sm `}
                 style={{ height: "70px" }}
               >
-                {nestedRoute.option}
+                {p.option}
               </Link>
-            ))
-          )}
-      </div> */}
+            ))}
+          </>
+        ) : (
+          <></>
+        )}
+      </div>
     </div>
   );
 };

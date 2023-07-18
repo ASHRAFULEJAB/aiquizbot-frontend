@@ -7,6 +7,7 @@ import Options from "../../components/Options/Options";
 import Header from "../../shared/Header";
 import Sidebar from "../../components/Sidebar/Sidebar";
 import { FaBars } from "react-icons/fa";
+import TeacherOptions from "../../components/Options/TeacherOptions";
 
 const DashboardLayout = () => {
   const [open, setOpen] = useState(true);
@@ -64,20 +65,22 @@ const DashboardLayout = () => {
                     pathname === "/dashboard/generate-questions/blanks" ||
                     pathname === "/dashboard/generate-questions/matching" ||
                     pathname === "/dashboard/generate-questions/calculations" ||
-                    pathname === "/dashboard/generate-questions/teacher-tool" ||
                     pathname ===
-                      "/dashboard/generate-questions/teacher-tool/lesson-planner" ||
-                    pathname ===
-                      "/dashboard/generate-questions/teacher-tool/project-ideas" ||
-                    pathname ===
-                      "/dashboard/generate-questions/teacher-tool/study-points" ||
-                    pathname ===
-                      "/dashboard/generate-questions/teacher-tool/group-creator" ||
-                    pathname ===
-                      "/dashboard/generate-questions/teacher-tool/seating-chart" ? (
+                      "/dashboard/generate-questions/teacher-tool" ? (
                       <>
-                        {" "}
-                        <Options></Options>{" "}
+                        <Options></Options>
+                      </>
+                    ) : (
+                      <></>
+                    )}
+                    {pathname ===
+                      "/dashboard/dashboard/generate-questions/teacher-tool/lesson-planer" ||
+                    pathname ===
+                      "/dashboard/dashboard/generate-questions/teacher-tool/project-ideas" ||
+                    pathname ===
+                      "/dashboard/dashboard/generate-questions/teacher-tool/study-points" ? (
+                      <>
+                        <TeacherOptions className="mt-5"></TeacherOptions>
                       </>
                     ) : (
                       <></>

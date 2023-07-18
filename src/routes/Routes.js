@@ -19,6 +19,9 @@ import Match from "../pages/generate-questions/matching/Match";
 import Calculate from "../pages/generate-questions/calculations/Calculate";
 import Teaches from "../pages/generate-questions/teacher-tool/Teaches";
 import TeacherTools from "../pages/generate-questions/teacher-tool/TeacherTools";
+import LessonPlaner from "../pages/generate-questions/teacher-tool/LessonPlaner";
+import ProjectIdeas from "../pages/generate-questions/teacher-tool/ProjectIdeas";
+import StudyPoints from "../pages/generate-questions/teacher-tool/StudyPoints";
 // import Home from "../pages/Home/Home";
 // import Feature from "../pages/Features/Feature";
 // import NftRights from "../pages/NFT/NftRights";
@@ -103,12 +106,18 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/generate-questions/teacher-tool",
         element: <Teaches />,
-        children: [
-          {
-            path: "/dashboard/generate-questions/teacher-tool/lesson-planner",
-            element: <TeacherTools />,
-          },
-        ],
+      },
+      {
+        path: "dashboard/generate-questions/teacher-tool/lesson-planer",
+        element: <LessonPlaner></LessonPlaner>,
+      },
+      {
+        path: "dashboard/generate-questions/teacher-tool/project-ideas",
+        element: <ProjectIdeas></ProjectIdeas>,
+      },
+      {
+        path: "dashboard/generate-questions/teacher-tool/study-points",
+        element: <StudyPoints></StudyPoints>,
       },
     ],
   },

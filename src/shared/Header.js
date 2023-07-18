@@ -8,6 +8,7 @@ import avater from "../assets/avater.avif";
 
 const Header = ({ open, setOpen }) => {
   const user = useContext(AuthContext);
+  console.log(user);
   return (
     <div className="flex items-center justify-between">
       <div className="lg:block md:block hidden">

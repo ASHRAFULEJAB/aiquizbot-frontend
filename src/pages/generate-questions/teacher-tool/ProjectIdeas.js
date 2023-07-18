@@ -1,12 +1,12 @@
 import React from "react";
 import Home from "../../../components/Home/Home";
 
-const Teaches = () => {
+const ProjectIdeas = () => {
   return (
-    <div className="ml-8 mr-16">
-      <Home />
+    <div>
+      <Home></Home>
     </div>
   );
 };
 
-export default Teaches;
+export default ProjectIdeas;
