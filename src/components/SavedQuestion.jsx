@@ -25,7 +25,7 @@ const SavedQuestion = () => {
         saveToDatabaseSavedQuestion(userID);
         setLoading(false);
       } catch (err) {
-        toast.error(err.message);
+        // toast.error(err.message);
         setLoading(false);
       }
     };
@@ -41,6 +41,7 @@ const SavedQuestion = () => {
         toast.error(err.message);
       }
     };
+
     handleAllSavedQuestions();
   }, [user]);
 
@@ -48,11 +49,7 @@ const SavedQuestion = () => {
     <section className="border-2 border-[#EEE]  rounded-xl py-5 mt-5 mr-8 ml-8 mb-10 min-h-screen">
       <h1 className="text-center text-3xl font-bold mb-8">Saved Question</h1>
       {/* {loading && <p>Loading!</p>} */}
-      <SavedQuestionTable
-        loading={loading}
-        savedQuestion={savedQuestion}
-        setSavedQuestion={setSavedQuestion}
-      />
+      <SavedQuestionTable loading={loading} savedQuestion={savedQuestion} />
     </section>
   );
 };

@@ -6,6 +6,7 @@ import { toast } from "react-hot-toast";
 import axios from "axios";
 import { AuthContext } from "../context/AuthProvider";
 import { Link } from "react-router-dom";
+import { AiOutlineSave } from "react-icons/ai";
 
 const SavedQuestionTable = ({ savedQuestion, setSavedQuestion }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -13,6 +14,7 @@ const SavedQuestionTable = ({ savedQuestion, setSavedQuestion }) => {
   const email = user?.email;
   console.log(savedQuestion);
   const [saveModalQuestion, setSaveModalQuestion] = useState({});
+  const [editModal, setEditModal] = useState(false);
 
   const openModal = (question) => {
     setModalOpen(true);
@@ -21,8 +23,9 @@ const SavedQuestionTable = ({ savedQuestion, setSavedQuestion }) => {
 
   const closeModal = () => {
     setModalOpen(false);
+    setEditModal(false);
   };
-
+  // saved question delete functionality here
   const handleDelete = async (id) => {
     const agree = window.confirm("Are You Sure ? You Want to Delete");
     if (agree) {
@@ -48,6 +51,45 @@ const SavedQuestionTable = ({ savedQuestion, setSavedQuestion }) => {
       } catch (error) {
         toast.error(error.message);
       }
+    }
+  };
+
+  // saved question edit functionality here
+  const handleClick = (id) => {
+    console.log(id);
+  };
+
+  const handleEditTilte = async (e) => {
+    e.preventDefault();
+    const updateTitle = {
+      userId: "userid boshaben",
+      title: "title boshaben",
+      generatedText: "generatedText boshaben",
+    };
+    try {
+      const email = user?.email;
+      const response = await axios.post(
+        "https://ai-quizzbot-server.onrender.com/api/v1/users/get-user",
+        { email }
+      );
+      const data = await response.data;
+      const userID = data?.data?._id;
+      // handleUpdateTilteName(userID);
+      console.log(userID);
+    } catch (err) {
+      toast.error(err.message);
+    }
+  };
+
+  const handleUpdateTilteName = async (userID) => {
+    try {
+      const response = await axios.get(
+        `https://ai-quizzbot-server.onrender.com/api/v1/academic-semesters/${userID}`
+      );
+      const data = await response.data;
+      console.log(data);
+    } catch (err) {
+      toast.error(err.message);
     }
   };
 
@@ -127,9 +169,11 @@ const SavedQuestionTable = ({ savedQuestion, setSavedQuestion }) => {
                       </td>
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div className="flex items-center gap-x-6">
-                          <Link href="/saved-questions/1">
+                          {/* Edit question here dynamically */}
+                          <div onClick={() => handleClick(question?._id)}>
+                            {/* to="/saved-questions/1" */}
                             <button
-                              //   onClick={handleClick}
+                              onClick={() => setEditModal(true)}
                               className="text-[#f9a544] transition-colors 
                           duration-200  focus:outline-none mt-1"
                             >
@@ -148,7 +192,7 @@ const SavedQuestionTable = ({ savedQuestion, setSavedQuestion }) => {
                                 />
                               </svg>
                             </button>
-                          </Link>
+                          </div>
                           <button
                             onClick={() => handleDelete(question?._id)}
                             className="text-[#FC495F] transition-colors  duration-200
@@ -201,6 +245,52 @@ const SavedQuestionTable = ({ savedQuestion, setSavedQuestion }) => {
                 </button>
               </div>
               <div>{saveModalQuestion?.generatedText}</div>
+            </div>
+          </div>
+        </div>
+      )}
+      {/* Edit Modal details here */}
+      {editModal && (
+        <div className="fixed inset-0 flex items-center justify-center z-50  ">
+          <div className="modal-overlay fixed inset-0 bg-gray-500 opacity-75"></div>
+          <div
+            className="modal-container bg-white w-1/2 h-3/4 mx-auto rounded-2xl shadow-lg
+                               z-50 overflow-y-auto"
+          >
+            <div className="modal-content py-6  text-left px-6">
+              <div className="flex justify-between items-center pb-3">
+                <h3 className="text-2xl font-bold mt-3">hey there</h3>
+
+                <button
+                  className="modal-close  w-10 h-10 font-bold cursor-pointer"
+                  onClick={closeModal}
+                >
+                  <ImCross className="w-4 h-4 text-red-700" />
+                </button>
+              </div>
+              <div>
+                <div className="flex justify-between items-center gap-6 mt-12 mb-6">
+                  <form onSubmit={handleEditTilte}>
+                    {" "}
+                    <div className="flex flex-col flex-grow">
+                      <input
+                        required
+                        type="text"
+                        name="editTitle"
+                        className="px-6 py-2 w-full rounded-2xl border-2 border-[#eee]"
+                        placeholder="Edit Ttile Here"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      className="px-3 py-3 text-white rounded  bg-gradient-to-b from-[#FC495F] from-62% via-[#FFc371] to-[#FF0000] to-38% 
+       bg-size-200 bg-pos-50"
+                    >
+                      <AiOutlineSave className="text-2xl" />
+                    </button>
+                  </form>
+                </div>
+              </div>
             </div>
           </div>
         </div>
