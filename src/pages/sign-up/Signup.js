@@ -62,9 +62,6 @@ const SignUp = () => {
             .then((result) => {
               setLoading(false);
               navigate("/dashboard/dashboard");
-              toast.success(
-                "Congratulation!! Your Registration is successfull"
-              );
             })
             .catch((err) => {
               toast.error(err.message);
@@ -96,7 +93,7 @@ const SignUp = () => {
 
     try {
       const response = await axios.post(
-        "https://ai-quizzbot-server.onrender.com/api/v1/users/create-user",
+        "http://localhost:4000/api/v1/users/create-user",
         { user }
       );
       const data = response.data;

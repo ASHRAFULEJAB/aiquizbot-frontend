@@ -52,15 +52,15 @@ const LoginForm = () => {
           const user = res.user;
           setLoading(false);
           navigate('/dashboard/dashboard');
-          toast.success("Login has been Successfull!!");
+          toast.success("Login has been Successful!!");
         })
         .catch((err) => {
-          toast.error('user not found!Please Sign Up First.');
+          toast.error('User not found! Please Sign Up First.');
           setLoginError("Incorrect email or password.");
           setLoading(false);
         });
     } else {
-      toast.error("Issue");
+      toast.error("Something went wrong");
     }
   };
 
