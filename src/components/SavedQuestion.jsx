@@ -16,7 +16,7 @@ const SavedQuestion = () => {
       try {
         const email = user?.email;
         const response = await axios.post(
-          "https://ai-quizzbot-farhatmahi.vercel.app/api/v1/users/get-user",
+          "https://ai-quizzbot-server.onrender.com/api/v1/users/get-user",
           { email }
         );
         const data = await response.data;
@@ -33,7 +33,7 @@ const SavedQuestion = () => {
     const saveToDatabaseSavedQuestion = async (userID) => {
       try {
         const response = await axios.get(
-          `https://ai-quizzbot-farhatmahi.vercel.app/api/v1/all-saved-questions/${userID}`
+          `https://ai-quizzbot-server.onrender.com/api/v1/all-saved-questions/${userID}`
         );
         const data = await response.data;
         setSavedQuestion(data?.data?.saved_questions);

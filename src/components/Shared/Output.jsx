@@ -54,7 +54,7 @@ const Output = ({ generatedResponse, chatGptLoading, saveQuestion }) => {
     try {
       const email = user?.email;
       const response = await axios.post(
-        "https://ai-quizzbot-farhatmahi.vercel.app/api/v1/users/get-user",
+        "https://ai-quizzbot-server.onrender.com/api/v1/users/get-user",
         { email }
       );
       const data = await response.data;
@@ -72,7 +72,7 @@ const Output = ({ generatedResponse, chatGptLoading, saveQuestion }) => {
     }
     try {
       const response = await axios.post(
-        `https://ai-quizzbot-farhatmahi.vercel.app/api/v1/all-saved-questions/${userID}`,
+        `https://ai-quizzbot-server.onrender.com/api/v1/all-saved-questions/${userID}`,
         {
           question,
         }

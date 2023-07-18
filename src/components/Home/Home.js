@@ -73,7 +73,7 @@ const Home = () => {
     const content = form.content.value;
     const language = form.language.value;
     const difficulty = form.difficulty.value;
-    const versionCount = form.versionCount.value;
+    // const versionCount = form.versionCount.value;
 
     const prompt = generatePrompt({
       format,
@@ -86,7 +86,7 @@ const Home = () => {
 
     const data = { prompt };
     axios
-      .post("https://ai-quizzbot-farhatmahi.vercel.app/api/v1/generate", data)
+      .post("https://ai-quizzbot-server.onrender.com/api/v1/generate", data)
       .then((res) => {
         setGeneratedResponse(res.data.data);
         const saveQuestionData = {
@@ -94,7 +94,7 @@ const Home = () => {
           language,
           content,
           difficulty,
-          versionCount,
+          // versionCount,
         };
         setSaveQuestion(saveQuestionData);
         setLoading(false);
