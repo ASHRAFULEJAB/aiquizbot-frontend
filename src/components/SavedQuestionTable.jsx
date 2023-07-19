@@ -15,6 +15,7 @@ const SavedQuestionTable = ({ savedQuestion, setSavedQuestion }) => {
   console.log(savedQuestion);
   const [saveModalQuestion, setSaveModalQuestion] = useState({});
   const [editModal, setEditModal] = useState(false);
+  const [questionId, setQuestionId] = useState(false);
 
   const openModal = (question) => {
     setModalOpen(true);
@@ -25,7 +26,7 @@ const SavedQuestionTable = ({ savedQuestion, setSavedQuestion }) => {
     setModalOpen(false);
     setEditModal(false);
   };
-  // saved question delete functionality here
+
   const handleDelete = async (id) => {
     const agree = window.confirm("Are You Sure ? You Want to Delete");
     if (agree) {
@@ -54,18 +55,11 @@ const SavedQuestionTable = ({ savedQuestion, setSavedQuestion }) => {
     }
   };
 
-  // saved question edit functionality here
-  const handleClick = (id) => {
-    console.log(id);
-  };
-
   const handleEditTilte = async (e) => {
     e.preventDefault();
-    const updateTitle = {
-      userId: "userid boshaben",
-      title: "title boshaben",
-      generatedText: "generatedText boshaben",
-    };
+
+    const titleInput = e.target.editTitle.value;
+
     try {
       const email = user?.email;
       const response = await axios.post(
@@ -74,20 +68,27 @@ const SavedQuestionTable = ({ savedQuestion, setSavedQuestion }) => {
       );
       const data = await response.data;
       const userID = data?.data?._id;
-      // handleUpdateTilteName(userID);
-      console.log(userID);
+      handleUpdateTilteName(userID, titleInput);
     } catch (err) {
       toast.error(err.message);
     }
   };
 
-  const handleUpdateTilteName = async (userID) => {
+  const handleUpdateTilteName = async (userID, titleInput) => {
     try {
-      const response = await axios.get(
-        `https://ai-quizzbot-server.onrender.com/api/v1/academic-semesters/${userID}`
+      const updatedTitle = {
+        userId: userID,
+        title: titleInput,
+        generatedText: questionId?.generatedText,
+      };
+
+      const response = await axios.patch(
+        `https://ai-quizzbot-server.onrender.com/api/v1/all-saved-questions/${questionId?._id}`,
+        updatedTitle
       );
       const data = await response.data;
-      console.log(data);
+
+      toast.success(data?.message);
     } catch (err) {
       toast.error(err.message);
     }
@@ -170,7 +171,7 @@ const SavedQuestionTable = ({ savedQuestion, setSavedQuestion }) => {
                       <td className="px-4 py-4 text-sm whitespace-nowrap">
                         <div className="flex items-center gap-x-6">
                           {/* Edit question here dynamically */}
-                          <div onClick={() => handleClick(question?._id)}>
+                          <div onClick={() => setQuestionId(question)}>
                             {/* to="/saved-questions/1" */}
                             <button
                               onClick={() => setEditModal(true)}
@@ -257,38 +258,42 @@ const SavedQuestionTable = ({ savedQuestion, setSavedQuestion }) => {
             className="modal-container bg-white w-1/2 h-3/4 mx-auto rounded-2xl shadow-lg
                                z-50 overflow-y-auto"
           >
-            <div className="modal-content py-6  text-left px-6">
+            <div className=" py-6  text-left px-6">
               <div className="flex justify-between items-center pb-3">
-                <h3 className="text-2xl font-bold mt-3">hey there</h3>
+                <h3 className="text-2xl font-bold mt-3">Updated Title</h3>
 
                 <button
-                  className="modal-close  w-10 h-10 font-bold cursor-pointer"
+                  className="  w-10 h-10 font-bold cursor-pointer"
                   onClick={closeModal}
                 >
                   <ImCross className="w-4 h-4 text-red-700" />
                 </button>
               </div>
               <div>
-                <div className="flex justify-between items-center gap-6 mt-12 mb-6">
+                <div className=" gap-6 mt-6">
                   <form onSubmit={handleEditTilte}>
-                    {" "}
-                    <div className="flex flex-col flex-grow">
-                      <input
-                        required
-                        type="text"
-                        name="editTitle"
-                        className="px-6 py-2 w-full rounded-2xl border-2 border-[#eee]"
-                        placeholder="Edit Ttile Here"
-                      />
-                    </div>
-                    <button
-                      type="submit"
-                      className="px-3 py-3 text-white rounded  bg-gradient-to-b from-[#FC495F] from-62% via-[#FFc371] to-[#FF0000] to-38% 
+                    <div className="flex items-center gap-3">
+                      <div className="flex-1 w-64">
+                        <input
+                          required
+                          type="text"
+                          name="editTitle"
+                          defaultValue={questionId?.title}
+                          className="px-6 py-2 w-full rounded-xl border-2 border-[#eee]"
+                        />
+                      </div>
+                      <button
+                        type="submit"
+                        className="px-2 py-2 text-white rounded-xl  bg-gradient-to-b from-[#FC495F] from-62% via-[#FFc371] to-[#FF0000] to-38% 
        bg-size-200 bg-pos-50"
-                    >
-                      <AiOutlineSave className="text-2xl" />
-                    </button>
+                      >
+                        Update Title
+                      </button>
+                    </div>
                   </form>
+                  <div className=" pt-8 text-justify">
+                    {questionId?.generatedText}
+                  </div>
                 </div>
               </div>
             </div>

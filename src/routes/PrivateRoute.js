@@ -3,9 +3,9 @@ import { Navigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 
 const PrivateRoute = ({ children }) => {
-  const { user, loader } = useContext(AuthContext);
+  const { user, loading } = useContext(AuthContext);
   const location = useLocation();
-  if (loader) {
+  if (loading) {
     return (
       <div className="flex items-center justify-center h-screen">
         <div className="w-16 h-16 border-4 border-dashed rounded-full animate-spin border-[#FC495F]"></div>
