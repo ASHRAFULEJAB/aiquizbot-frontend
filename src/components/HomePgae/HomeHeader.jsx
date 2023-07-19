@@ -231,7 +231,7 @@ const HomeHeader = () => {
                       </motion.li>
                       <motion.li>
                         <Link
-                          to="/dashboard"
+                          to="/dashboard/dashboard"
                           aria-label="Our product"
                           className="font-bold tracking-wide text-gray-900 transition-colors duration-200 "
                         >

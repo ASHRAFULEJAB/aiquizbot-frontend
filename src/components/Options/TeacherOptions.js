@@ -72,7 +72,8 @@ const TeacherOptions = () => {
   ];
 
   return (
-    <div className="grid  grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-5 mt-5 bg-[#f9f9f9] rounded-2xl border border-[#eee] mx-8">
+    <div className="grid  grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7
+     gap-5 mt-5 bg-[#f9f9f9] rounded-2xl border border-[#eee] lg:mx-8">
       {buttonOptions?.map((buttonOption) => (
         <Link
           to={buttonOption.link}

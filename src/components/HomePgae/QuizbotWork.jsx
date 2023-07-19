@@ -62,7 +62,7 @@ const QuizbotWork = () => {
               </div>
 
               <h1 className="mt-6 text-xl font-semibold text-center text-gray-800 ">
-                Text, Link, Video
+                Text, Link
               </h1>
 
               {/* <hr className="w-32 my-6 text-blue-500" /> */}
@@ -130,14 +130,15 @@ const QuizbotWork = () => {
               </div>
 
               <h1 className="mt-6 text-xl font-semibold text-center text-gray-800 ">
-                AI Code
+                Saved Question
               </h1>
 
               {/* <hr className="w-32 my-6 text-blue-500" /> */}
 
               <p className="text-[18px] text-gray-900 text-center">
                 Quizbot can code for the website you want to create and give you
-                suggestion to improve it.....
+                the option to save the text and ,deleting the text as well as
+                edit the text.....
               </p>
 
               <Link

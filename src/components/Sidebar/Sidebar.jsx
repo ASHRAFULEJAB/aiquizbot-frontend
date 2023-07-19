@@ -27,7 +27,7 @@ const Sidebar = () => {
     logOut()
       .then(() => {
         toast.success("Logout Successfully!!");
-         navigate('/login');
+        navigate("/login");
       })
       .catch((e) => toast.error(e.message));
   };
@@ -186,7 +186,9 @@ const Sidebar = () => {
       </div>
 
       {/* Mobile Code */}
-      <div className="lg:hidden md:hidden block ">
+
+      <div className="lg:hidden md:hidden block bg-gradient-to-b
+       from-[#F0F0F0] via-[#F5F5F5] to-white py-10 px-5  ">
         <Link to="/">
           <img
             src={logo}
@@ -197,7 +199,7 @@ const Sidebar = () => {
           />
         </Link>
         <Link
-          to="/dashboard"
+          to="/dashboard/dashboard"
           className={` ${
             pathname === "/dashboard"
               ? ` bg-transparent bg-clip-text font-semibold text-[#FC495F] mt-5`
@@ -247,7 +249,7 @@ const Sidebar = () => {
             })}
           </div>
           <div>
-            <h2 className=" font-bold mb-5 mt-16  ">Account</h2>
+            {/* <h2 className=" font-bold mb-5 mt-16  ">Account</h2>
             {AccountSettings.map((item) => {
               return (
                 <Link
@@ -291,7 +293,7 @@ const Sidebar = () => {
                   )}
                 </Link>
               );
-            })}
+            })} */}
             <div className="flex items-center gap-3 cursor-pointer">
               <LuLogOut className="text-[20px] "></LuLogOut>{" "}
               <span onClick={handleLogout} className="font-normal">

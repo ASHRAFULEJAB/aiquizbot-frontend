@@ -12,7 +12,8 @@ const HomePage = () => {
       {/* Hero Image */}
       <div className="flex justify-center ">
         <img
-          className="w-11/12 h-[56.25vw]  mt-20"
+          style={{ width: "90%", height: "auto" }}
+          className="mt-20"
           src={Banner}
           alt="imgae"
         ></img>

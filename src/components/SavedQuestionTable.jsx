@@ -229,7 +229,7 @@ const SavedQuestionTable = ({ savedQuestion, setSavedQuestion }) => {
         <div className="fixed inset-0 flex items-center justify-center z-50  ">
           <div className="modal-overlay fixed inset-0 bg-gray-500 opacity-75"></div>
           <div
-            className="modal-container bg-white w-1/2 h-3/4 mx-auto rounded-2xl shadow-lg
+            className="modal-container bg-white lg:w-1/2 h-3/4 mx-auto rounded-2xl shadow-lg
                                z-50 overflow-y-auto"
           >
             <div className="modal-content py-6  text-left px-6">
@@ -255,7 +255,7 @@ const SavedQuestionTable = ({ savedQuestion, setSavedQuestion }) => {
         <div className="fixed inset-0 flex items-center justify-center z-50  ">
           <div className="modal-overlay fixed inset-0 bg-gray-500 opacity-75"></div>
           <div
-            className="modal-container bg-white w-1/2 h-3/4 mx-auto rounded-2xl shadow-lg
+            className="modal-container bg-white lg:w-1/2 h-3/4 mx-auto rounded-2xl shadow-lg
                                z-50 overflow-y-auto"
           >
             <div className=" py-6  text-left px-6">
